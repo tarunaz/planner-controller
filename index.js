@@ -1,4 +1,6 @@
 var stompit = require('stompit');
+var http = require('http') ;
+var port = 3000;
 
 var connectOptions = {
   'host': 'amq-dev',
@@ -25,7 +27,7 @@ stompit.connect(connectOptions, function(error, client) {
   };
 
   var frame = client.send(sendHeaders);
-  frame.write('hello');
+  frame.write('hello world');
   frame.end();
 
   var subscribeHeaders = {
@@ -54,4 +56,22 @@ stompit.connect(connectOptions, function(error, client) {
       client.disconnect();
     });
   });
+});
+
+
+
+
+const requestHandler = (request, response) => {
+  console.log(request.url)
+  response.end('Hello Node.js Server!');
+};
+
+const server = http.createServer(requestHandler);
+
+server.listen(port, (err) => {
+  if (err) {
+    return console.log('something bad happened', err)
+  }
+
+  console.log(`server is listening on ${port}`)
 });
