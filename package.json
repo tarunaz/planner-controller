@@ -1,0 +1,7 @@
+{
+  "name": "OSAMQ",
+  "version": "0.0.1",
+  "dependencies": {
+    "stompit": "^0.25.0"
+  }
+}
