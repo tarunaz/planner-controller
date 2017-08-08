@@ -32,7 +32,7 @@ stompit.connect(connectOptions, function(error, client) {
 
 
   var frame = client.send(sendHeaders);
-  frame.write('hello world');
+  frame.write('hello world from private repo');
   frame.end();
 
 
