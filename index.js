@@ -24,9 +24,9 @@ stompit.connect(connectOptions, function(error, client) {
   var sendHeaders = {
     'destination': 'optaplanner-dev-queue',
     'content-type': 'text/plain',
-      'branchNumber': 106400,
-      'routeNumber': 'routeNumber',
-      'batchNumber': 'batchNumber'
+      'branchNumber': 105700,
+      'routeNumber': 'P*114',
+      'batchNumber': 'B-123'
   };
 
 
@@ -35,8 +35,10 @@ stompit.connect(connectOptions, function(error, client) {
   frame.write('hello world');
   frame.end();
 
+
+
   // var subscribeHeaders = {
-  //   'destination': 'optaplanner-dev-queue',
+  //   'destination': 'optaplanne r-dev-queue',
   //   'ack': 'client-individual'
   // };
 
