@@ -8,13 +8,6 @@ node('nodejs') {
 
        sh "npm install"
    }
-   stage('Test') {
-       // Runs unit tests
-      sh """
-       //     npm i fh-fhc@2.17.1-516
-       //     npm test
-        """
-   }
    stage('OpenShift Build') {
      sh """
          oc project optaplanner-jms-dev
