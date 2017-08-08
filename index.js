@@ -23,39 +23,44 @@ stompit.connect(connectOptions, function(error, client) {
 
   var sendHeaders = {
     'destination': 'optaplanner-dev-queue',
-    'content-type': 'text/plain'
+    'content-type': 'text/plain',
+      'branchNumber': 106400,
+      'routeNumber': 'routeNumber',
+      'batchNumber': 'batchNumber'
   };
+
+
 
   var frame = client.send(sendHeaders);
   frame.write('hello world');
   frame.end();
 
-  var subscribeHeaders = {
-    'destination': 'optaplanner-dev-queue',
-    'ack': 'client-individual'
-  };
+  // var subscribeHeaders = {
+  //   'destination': 'optaplanner-dev-queue',
+  //   'ack': 'client-individual'
+  // };
 
-  client.subscribe(subscribeHeaders, function(error, message) {
-
-    if (error) {
-      console.log('subscribe error ' + error.message);
-      return;
-    }
-
-    message.readString('utf-8', function(error, body) {
-
-      if (error) {
-        console.log('read message error ' + error.message);
-        return;
-      }
-
-      console.log('received message: ' + body);
-
-      client.ack(message);
-
-      client.disconnect();
-    });
-  });
+  // client.subscribe(subscribeHeaders, function(error, message) {
+  //
+  //   if (error) {
+  //     console.log('subscribe error ' + error.message);
+  //     return;
+  //   }
+  //
+  //   message.readString('utf-8', function(error, body) {
+  //
+  //     if (error) {
+  //       console.log('read message error ' + error.message);
+  //       return;
+  //     }
+  //
+  //     console.log('received message: ' + body);
+  //
+  //     client.ack(message);
+  //
+  //     client.disconnect();
+  //   });
+  // });
 });
 
 
