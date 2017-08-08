@@ -11,7 +11,7 @@ node('nodejs') {
    stage('OpenShift Build') {
      sh """
          oc project optaplanner-jms-dev
-     	 oc start-build node-amq --wait
+     	 oc start-build node-amq --wait -n optaplanner-jms-dev
      """
    }
     stage('OpenShift Deployment') {
