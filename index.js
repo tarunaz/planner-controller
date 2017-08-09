@@ -22,7 +22,7 @@ stompit.connect(connectOptions, function(error, client) {
   }
 
   var sendHeaders = {
-    'destination': 'optaplanner-dev-queue',
+    'destination': 'planner-queue',
     'content-type': 'text/plain',
       'branchNumber': 105700,
       'routeNumber': 'P*114',
