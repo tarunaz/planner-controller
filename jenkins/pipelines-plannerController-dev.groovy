@@ -10,12 +10,12 @@ node('nodejs') {
    }
    stage('OpenShift Build') {
      sh """
-         oc project optaplanner-jms-dev
-     	 oc start-build node-amq --wait -n optaplanner-jms-dev
+         oc project optaplanner-amq-dev
+     	 oc start-build node-amq --wait -n optaplanner-amq-dev
      """
    }
     stage('OpenShift Deployment') {
      echo "Waiting on OpenShift Deployment..."
-     openshiftVerifyDeployment depCfg: 'node-amq', namespace: 'optaplanner-jms-dev', replicaCount: '1', verbose: 'false', verifyReplicaCount: 'true', waitTime: '300', waitUnit: 'sec'
+     openshiftVerifyDeployment depCfg: 'planner-scheduler', namespace: 'optaplanner-amq-dev', replicaCount: '1', verbose: 'false', verifyReplicaCount: 'true', waitTime: '300', waitUnit: 'sec'
    }
 }
