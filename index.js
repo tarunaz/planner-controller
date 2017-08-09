@@ -3,7 +3,7 @@ var http = require('http') ;
 var port = 3000;
 
 var connectOptions = {
-  'host': 'amq-dev',
+  'host': 'amq',
   'port': 61613,
   'connectHeaders':{
     'host': '/',
