@@ -39,7 +39,7 @@ router.post('/:branchNumber/:routeNumber/:batchNumber', function (req, res) {
       return;
     }
     var frame = client.send(sendHeaders);
-    frame.write(req.body);
+    frame.write(JSON.stringify(req.body));
     frame.end();
 
     log.info('message sent');
