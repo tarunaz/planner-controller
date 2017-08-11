@@ -6,6 +6,10 @@
   "name": "OSAMQ",
   "version": "0.0.1",
   "dependencies": {
+    "express": "~4.15.2",
+    "verror": "~1.9.0",
+    "body-parser": "~1.17.1",
+    "tke-logger": "git+https://github.com/TkeITMobility/tke-cloud-logger.git#v0.5.0",
     "http": "0.0.0",
     "stompit": "^0.25.0"
   }
