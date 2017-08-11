@@ -1,6 +1,6 @@
 // var stompit = require('stompit');
 // var http = require('http') ;
-var port = 8080;
+var port = 3000;
 const express = require('express');
 const app = (module.exports = express());
 const bodyParser = require('body-parser');
