@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 const log = require('tke-logger').getLogger(__filename);
 
-app.use('/publish', require('./publish.js'));
+app.use('/publish', require('lib/routes/publish.js'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
