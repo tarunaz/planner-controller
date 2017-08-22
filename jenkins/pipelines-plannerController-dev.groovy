@@ -10,12 +10,12 @@ node('nodejs') {
    }
    stage('OpenShift Build') {
      sh """
-         oc project optaplanner-amq-dev
-     	 oc start-build planner-controller --wait -n optaplanner-amq-dev
+         oc project planner-controller-amq-dev
+     	 oc start-build planner-controller --wait -n planner-controller-amq-dev
      """
    }
     stage('OpenShift Deployment') {
      echo "Waiting on OpenShift Deployment..."
-     openshiftVerifyDeployment depCfg: 'planner-controller', namespace: 'optaplanner-amq-dev', replicaCount: '1', verbose: 'false', verifyReplicaCount: 'true', waitTime: '300', waitUnit: 'sec'
+     openshiftVerifyDeployment depCfg: 'planner-controller', namespace: 'planner-controller-amq-dev', replicaCount: '1', verbose: 'false', verifyReplicaCount: 'true', waitTime: '300', waitUnit: 'sec'
    }
 }
