@@ -1,0 +1,48 @@
+{
+    "kind": "Job",
+    "apiVersion": "batch/v1",
+    "metadata": {
+        "name":"{{planner-queue}}",
+        "creationTimestamp": null
+    },
+    "spec": {
+        "parallelism": 2,
+        "template": {
+            "metadata": {
+                "name": "{{planner-queue}}"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "planner-scheduler",
+                        "image": "172.30.238.118:5000/{{planner-controller-amq}}/planner-scheduler:latest",
+                        "env": [
+                            {
+                                "name": "JAVA_MAIN_CLASS",
+                                "value": "com.tke.servicesight.routeplanner.scheduler.jms.app.MainApplication"
+                            },
+                            {
+                                "name": "JAVA_TOOL_OPTIONS",
+                                "value": "-Drouteplanner.brokerUrl=tcp://amq:61616 -Drouteplanner.queueName=planner-{{planner-queue}} -Drouteplanner.user={{amq-login}} -Drouteplanner.password={{amq-passcode}} {{optaPlannerConfig}}"
+                            }
+                        ],
+                        "resources": {
+                            "limits": {
+                                "cpu": "1"
+                            },
+                            "requests": {
+                                "cpu": "1"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "Always"
+                    }
+                ],
+                "restartPolicy": "Never",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "securityContext": {}
+            }
+        }
+    }
+}
