@@ -23,7 +23,7 @@
                             },
                             {
                                 "name": "JAVA_TOOL_OPTIONS",
-                                "value": "-Drouteplanner.brokerUrl=tcp://amq:61616 -Drouteplanner.queueName=planner-{{planner-queue}} -Drouteplanner.user={{amq-login}} -Drouteplanner.password={{amq-passcode}} {{optaPlannerConfig}}"
+                                "value": "-Drouteplanner.brokerUrl=tcp://amq:61616 -Drouteplanner.queueName={{planner-queue}} -Drouteplanner.user={{amq-login}} -Drouteplanner.password={{amq-passcode}} {{optaPlannerConfig}} -Drouteplanner.log.level=debug -Drouteplanner.tjms=10000"
                             }
                         ],
                         "resources": {
