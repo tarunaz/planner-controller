@@ -12,7 +12,7 @@
     "joi": "~10.6.0",
     "request": "~2.81.0",
     "stompit": "~0.25.0",
-    "tke-logger": "git+https://github.com/TkeITMobility/tke-cloud-logger.git#v0.5.0",
+    "tke-logger": "git+https://github.com/TkeITMobility/tke-cloud-logger.git#v0.5.1",
     "verror": "~1.9.0"
   },
   "devDependencies": {
