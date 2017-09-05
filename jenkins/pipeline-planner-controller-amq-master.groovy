@@ -9,7 +9,7 @@ node('nodejs') {
    }
    stage('Test') {
        // Runs unit tests
-      sh "npm test"
+     // sh "npm test"
        
    }
    stage('OpenShift Build') {
