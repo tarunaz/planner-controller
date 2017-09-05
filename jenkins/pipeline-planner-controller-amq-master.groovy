@@ -21,7 +21,7 @@ node('nodejs') {
       
       echo "Tagging github project with tag: $TAG_NAME"
       // Create tag and write to GitHub
-      sshagent(['git-SS-PlannerController']) {
+      sshagent(['b0e77d7d-8ae6-4d43-8a97-f4b3e8274300']) {
           sh """
             git tag $TAG_NAME
             git push origin $TAG_NAME
