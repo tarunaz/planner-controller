@@ -31,6 +31,8 @@ node('nodejs') {
       echo "Created a new tagged build at $TAG_NEW."
         
       sh """
+        # Set the project to planner-controller-amq-test
+        oc project planner-controller-amq-test
         # Patch the BuildConfig to pull from the git tag
         oc patch buildconfig planner-controller -p "{\\"spec\\": {\\"source\\": {\\"git\\": {\\"ref\\": \\"${TAG_NAME}\\" }}}}"  -n planner-controller-amq-test
         # Patch the BuildConfig to output the image to the docker tag
