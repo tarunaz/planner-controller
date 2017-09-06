@@ -9,7 +9,7 @@ node('nodejs') {
    }
    stage('Test') {
        // Runs unit tests
-     // sh "npm test"
+       // sh "npm test"
        
    }
    stage('OpenShift Build') {
@@ -21,7 +21,7 @@ node('nodejs') {
       
       echo "Tagging github project with tag: $TAG_NAME"
       // Create tag and write to GitHub
-      sshagent(['b0e77d7d-8ae6-4d43-8a97-f4b3e8274300']) {
+      sshagent(['git-SS-PlannerController']) {
           sh """
             git tag $TAG_NAME
             git push origin $TAG_NAME
