@@ -57,7 +57,7 @@ node('nodejs') {
 
        sh """
          src_creds=openshift:\$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
-         dest_creds=openshift:\$(cat /etc/plannner-controller-amq-prod-secret-volume/token)
+         dest_creds=openshift:\$(cat /etc/planner-controller-amq-prod-secret-volume/token)
           
          skopeo copy --src-creds \$src_creds --dest-creds \$dest_creds docker://registry.tke.openshift.com/planner-controller-amq-preprod/planner-controller:latest docker://registry.prod-east-tke.openshift.com/planner-controller-amq-prod/planner-controller:latest
        """
