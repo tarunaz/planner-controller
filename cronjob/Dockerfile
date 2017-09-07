@@ -17,7 +17,7 @@ RUN yum repolist --disablerepo=* && \
     curl -o ~/oc.tar.gz https://mirror.openshift.com/pub/openshift-v3/clients/3.4.1.18/linux/oc.tar.gz && \
     cd /usr/bin && tar xvzf ~/oc.tar.gz && \
     wget -O jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && \
-    chmod +x ./jq && cp jq /usr/bin
+    chmod +x ./jq
 
 # Copy the entrypoint
 USER 1001
