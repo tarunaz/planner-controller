@@ -9,7 +9,7 @@ RUN yum repolist --disablerepo=* && \
     yum clean all && \
     yum-config-manager --disable rhel* 1>/dev/null && \
     yum-config-manager --enable rhel-7-server-rpms && \
-    export INSTALL_PKGS="tar curl" && \
+    export INSTALL_PKGS="tar curl wget" && \
     yum clean all && \
     yum install -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
